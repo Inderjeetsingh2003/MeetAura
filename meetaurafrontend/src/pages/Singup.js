@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import Googleauth from '../components/Googleauth';
+import backgroundImage from '../pages/a-captivating-dark-nature-themed-background-image--p88P6EqtSou8QpsbmUVdtQ-lCZJI24pRUqsxiG-aIRO3w.jpeg'; // Update the path accordingly
+import logo123 from '../pages/_cb51d42b-3c39-429a-9938-7f881cd0f4dc.jpeg';
 
 export default function Signup() {
   const [signupCredentials, setSignupCredentials] = useState({
@@ -6,6 +9,14 @@ export default function Signup() {
     email: '',
     password: '',
     confirmPassword: '',
+  });
+
+  const [hover, setHover] = useState({
+    button: false,
+    inputName: false,
+    inputEmail: false,
+    inputPassword: false,
+    inputConfirmPassword: false,
   });
 
   const handleClick = async (e) => {
@@ -41,63 +52,110 @@ export default function Signup() {
   };
 
   return (
-    <div style={styles.signupContainer}>
-      <form style={styles.signupForm}>
-        <div style={styles.formGroup}>
-          <label htmlFor="name" style={styles.formLabel}>Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            name="name"
-            value={signupCredentials.name}
-            onChange={handleOnChange}
-            style={styles.formControl}
-          />
+    <div style={{ ...styles.signupContainer, backgroundImage: `url(${backgroundImage})` }}>
+     <img src={logo123} alt="Logo" style={styles.logo} />
+      <div style={styles.leftSide}>
+        <div style={styles.textCard}>
+          <h1 style={styles.textCardTitle}><br/><br/><br/>Welcome to Meet Aura<br/><br/><br/><br/></h1>
+          <p style={styles.textCardDescription}>
+            Welcome to Meet Aura, where virtual interactions are elevated to new heights! Our platform revolutionizes video conferencing and collaboration, providing an innovative and seamless experience for users worldwide.
+            <br/><br/> With Meet Aura, you can enjoy crystal-clear video calls that bring you closer to your friends, family, colleagues, or clients. Our high-quality video ensures that every conversation feels personal and engaging, whether you're connecting across the street or across the globe.
+            <br/><br/> But that's not all. Meet Aura also offers robust screen sharing capabilities, allowing you to effortlessly share presentations.
+          </p>
         </div>
-        <div style={styles.formGroup}>
-          <label htmlFor="email" style={styles.formLabel}>Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            name="email"
-            value={signupCredentials.email}
-            onChange={handleOnChange}
-            style={styles.formControl}
-          />
-          <div style={styles.formText}>We'll never share your email with anyone else.</div>
-        </div>
-        <div style={styles.formGroup}>
-          <label htmlFor="password" style={styles.formLabel}>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            name="password"
-            value={signupCredentials.password}
-            onChange={handleOnChange}
-            style={styles.formControl}
-          />
-        </div>
-        <div style={styles.formGroup}>
-          <label htmlFor="confirmPassword" style={styles.formLabel}>Confirm Password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={signupCredentials.confirmPassword}
-            onChange={handleOnChange}
-            style={styles.formControl}
-          />
-        </div>
-        <div style={styles.formCheck}>
-          <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-          <label className="form-check-label" htmlFor="exampleCheck1" style={styles.formCheckLabel}>Check me out</label>
-        </div>
-        <button type="button" className="btn btn-primary" onClick={handleClick} style={styles.button}>Submit</button>
-      </form>
+      </div>
+      <div style={styles.rightSide}>
+        <form style={styles.signupForm} onSubmit={handleClick}>
+          <h2 style={styles.signupFormTitle}>Sign Up</h2>
+          <div style={styles.formGroup}>
+            <label htmlFor="name" style={styles.formLabel}>Name</label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              name="name"
+              value={signupCredentials.name}
+              onChange={handleOnChange}
+              style={{
+                ...styles.formControl,
+                borderColor: hover.inputName ? '#777777' : '#555555',
+              }}
+              onMouseEnter={() => setHover({ ...hover, inputName: true })}
+              onMouseLeave={() => setHover({ ...hover, inputName: false })}
+            />
+          </div>
+          <div style={styles.formGroup}>
+            <label htmlFor="email" style={styles.formLabel}>Email address</label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              name="email"
+              value={signupCredentials.email}
+              onChange={handleOnChange}
+              style={{
+                ...styles.formControl,
+                borderColor: hover.inputEmail ? '#777777' : '#555555',
+              }}
+              onMouseEnter={() => setHover({ ...hover, inputEmail: true })}
+              onMouseLeave={() => setHover({ ...hover, inputEmail: false })}
+            />
+            <div style={styles.formText}>We'll never share your email with anyone else.</div>
+          </div>
+          <div style={styles.formGroup}>
+            <label htmlFor="password" style={styles.formLabel}>Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              name="password"
+              value={signupCredentials.password}
+              onChange={handleOnChange}
+              style={{
+                ...styles.formControl,
+                borderColor: hover.inputPassword ? '#777777' : '#555555',
+              }}
+              onMouseEnter={() => setHover({ ...hover, inputPassword: true })}
+              onMouseLeave={() => setHover({ ...hover, inputPassword: false })}
+            />
+          </div>
+          <div style={styles.formGroup}>
+            <label htmlFor="confirmPassword" style={styles.formLabel}>Confirm Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="confirmPassword"
+              name="confirmPassword"
+              value={signupCredentials.confirmPassword}
+              onChange={handleOnChange}
+              style={{
+                ...styles.formControl,
+                borderColor: hover.inputConfirmPassword ? '#777777' : '#555555',
+              }}
+              onMouseEnter={() => setHover({ ...hover, inputConfirmPassword: true })}
+              onMouseLeave={() => setHover({ ...hover, inputConfirmPassword: false })}
+            />
+          </div>
+          <div style={styles.formCheck}>
+            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+            <label className="form-check-label" htmlFor="exampleCheck1" style={styles.formCheckLabel}>Check me out</label>
+          </div>
+          <button
+            type="submit"
+            className="btn btn-primary"
+            style={{
+              ...styles.button,
+              backgroundColor: hover.button ? '#f7f7f7' : '#615efc',
+              color: hover.button ? 'black' : '#E0E0E0',
+            }}
+            onMouseEnter={() => setHover({ ...hover, button: true })}
+            onMouseLeave={() => setHover({ ...hover, button: false })}
+          >
+            Submit
+          </button>
+          <Googleauth />
+        </form>
+      </div>
     </div>
   );
 }
@@ -105,54 +163,104 @@ export default function Signup() {
 const styles = {
   signupContainer: {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     height: '100vh',
-    backgroundColor: '#F1F0E8',
+    backgroundColor: '#1E1E1E',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+  },
+  rightSide: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  leftSide: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'left',
+    margin: '0px',
+    border: '0px',
+  },
+  textCard: {
+    background: 'rgba(0, 0, 0, 0.6)',
+    padding: '30px',
+    borderRadius: '10px',
+    color: '#FFFFFF',
+    textAlign: 'justify',
+    width: '100%',
+    maxWidth: '700px',
+  },
+  textCardTitle: {
+    fontSize: '28px',
+    fontWeight: 'bold',
+    marginBottom: '10px',
+  },
+  textCardDescription: {
+    fontSize: '20px',
+    lineHeight: '1.6',
+  },
+  logo: {
+    position: 'absolute',
+    top: '20px',
+    left: '20px',
+    height: '60px',
+    width: 'auto',
+    padding: '10px',
   },
   signupForm: {
-    background: '#fff',
+    background: '#2D2D2D',
     padding: '40px',
     borderRadius: '10px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.7)',
     width: '100%',
     maxWidth: '400px',
-    border: '2px solid #EEE0C9',
+    border: '2px solid #444444',
+ 
+  },
+  signupFormTitle: {
+    fontSize: '24px',
+    color: '#FFFFFF',
+    marginBottom: '20px',
+    textAlign: 'center',
   },
   formGroup: {
     marginBottom: '20px',
   },
   formLabel: {
     fontWeight: 'bold',
-    color: '#96B6C5',
+    color: '#BBBBBB',
     display: 'block',
     marginBottom: '5px',
   },
   formControl: {
-    border: '1px solid #ADC4CE',
+    border: '1px solid #555555',
     borderRadius: '5px',
     padding: '10px',
     width: '100%',
     outline: 'none',
+    backgroundColor: '#3A3A3A',
+    color: '#E0E0E0',
     transition: 'border-color 0.3s',
-  },
-  formControlFocus: {
-    borderColor: '#ADC4CE',
   },
   formText: {
     fontSize: '12px',
-    color: '#ADC4CE',
+    color: '#AAAAAA',
   },
   formCheck: {
     marginBottom: '20px',
   },
   formCheckLabel: {
-    color: '#96B6C5',
+    color: '#BBBBBB',
   },
   button: {
-    backgroundColor: '#96B6C5',
+    backgroundColor: '#615efc',
     border: 'none',
-    color: '#fff',
+    color: '#E0E0E0',
     padding: '10px 20px',
     fontSize: '16px',
     borderRadius: '5px',
@@ -160,91 +268,4 @@ const styles = {
     transition: 'background-color 0.3s',
     width: '100%',
   },
-  buttonHover: {
-    backgroundColor: '#ADC4CE',
-  },
 };
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState } from 'react'
-
-// export default function Singup() {
-//  const[singupcredentials,setsingupcredentials]=useState({name:'',email:'',password:'',confirmpassword:''})
-
-//  const handleclick=async(e)=>
-//     {
-//         e.preventDefault()
-//         if(singupcredentials.password===singupcredentials.confirmpassword)
-//             {
-//                 const response=await fetch('http://localhost:4000/user/signup',{
-//                     mode:'cors',
-//                     method:'POST',
-//                     headers:{
-//                         'Content-Type':'application/json'
-//                     },
-//                     body:JSON.stringify({'name':singupcredentials.name,'email':singupcredentials.email,'password':singupcredentials.password})
-//                 })
-
-//                 const json=await response.json()
-//                 if(json.success)
-//                     {
-//                         console.log("singup successfully done")
-//                         console.log(json.accesstoken)
-
-//                     }
-//                     else{
-//                         alert(json.message)
-//                     }
-//             }
-//             else{
-//                 alert('password and confirmm password do not match')
-//             }
-//     }
-
-
-
-// const handleonchange=(e)=>
-//     {
-//         setsingupcredentials({...singupcredentials,[e.target.name]:e.target.value})
-//     }
-
-//   return (
-//    <>
-//    <form>
-//   <div className="mb-3">
-//     <label for="exampleInputEmail1" className="form-label">Name</label>
-//     <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='name'value={singupcredentials.name} onChange={handleonchange}/>
-//     <div id="emailHelp" className="form-text"></div>
-//   </div>
-//   <div className="mb-3">
-//     <label for="exampleInputEmail1" className="form-label">Email address</label>
-//     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='email'value={singupcredentials.email} onChange={handleonchange}/>
-//     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-//   </div>
-//   <div className="mb-3">
-//     <label for="exampleInputPassword1" className="form-label">Password</label>
-//     <input type="password" className="form-control" id="exampleInputPassword1" name='password'value={singupcredentials.password} onChange={handleonchange}/>
-//   </div>
-//   <div className="mb-3">
-//     <label for="exampleInputPassword1" className="form-label">confirm password</label>
-//     <input type="password" className="form-control" id="exampleInputPassword1" name='confirmpassword'value={singupcredentials.confirmpassword} onChange={handleonchange}/>
-//   </div>
-//   <div className="mb-3 form-check">
-//     <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-//     <label className="form-check-label" for="exampleCheck1">Check me out</label>
-//   </div>
-//   <button type="button" className="btn btn-primary" onClick={handleclick}>Submit</button>
-// </form>
-//    </>
-//   )
-// }
