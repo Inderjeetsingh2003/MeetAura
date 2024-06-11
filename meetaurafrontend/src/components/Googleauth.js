@@ -1,7 +1,7 @@
 import React from 'react';
 import { app } from './FireBase';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import './GoogleButton.css';  // Import the CSS file
+import   './googlebutton.css'// Import the CSS file
 
 export default function Googleauth() {
   const auth = getAuth(app);
