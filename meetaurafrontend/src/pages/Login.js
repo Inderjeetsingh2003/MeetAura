@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Googleauth from '../components/Googleauth';
 import backgroundImage from '../pages/a-captivating-dark-nature-themed-background-image--p88P6EqtSou8QpsbmUVdtQ-lCZJI24pRUqsxiG-aIRO3w.jpeg'; // Update the path accordingly
 import logo123 from '../pages/_cb51d42b-3c39-429a-9938-7f881cd0f4dc.jpeg';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function Login() {
@@ -89,6 +89,7 @@ export default function Login() {
               onMouseLeave={() => setHover({ ...hover, inputPassword: false })}
             />
           </div>
+          <div><p style={{color:'white'}}> do not have an account?</p><Link to='/'> singup</Link></div>
           <button
             type="submit"
             style={{

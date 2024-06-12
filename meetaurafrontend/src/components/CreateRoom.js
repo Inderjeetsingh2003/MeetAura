@@ -5,13 +5,6 @@ export default function CreateRoom(props) {
 
     const[Roomdetails,SetRoomdetails]=useState({title:'',description:'',accesstype:'public',roomtype:'chat'})
 
-    const navigate=useNavigate()
-    useEffect(() => {
-      if(!localStorage.getItem('user-token'))
-        {
-            navigate('/login')
-        }
-    }, [])
     
 
 const handleclick=async(e)=>
