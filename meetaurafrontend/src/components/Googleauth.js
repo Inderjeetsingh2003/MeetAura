@@ -45,7 +45,7 @@ const navigate=useNavigate()
 
   return (
     <button type="button" className="google-button" onClick={handlegoogleclick}>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Google_2015_logo.svg" alt="Google logo" />
+      <img src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg" alt="Google logo" />
       Continue with Google
     </button>
   );
