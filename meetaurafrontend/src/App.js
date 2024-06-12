@@ -4,6 +4,7 @@ import Googleauth from './components/Googleauth';
 import Login from './pages/Login';
 import{createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Singup from './pages/Singup';
+import Home from './pages/Home';
 function App() {
 const router=createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router=createBrowserRouter([
   {
     path:"/",
     element:<Singup/>
+  },
+  {
+    path:'/home',
+    element:<Home/>
   }
 ])
 

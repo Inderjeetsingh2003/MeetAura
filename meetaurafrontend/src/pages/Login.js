@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import Googleauth from '../components/Googleauth';
 import backgroundImage from '../pages/a-captivating-dark-nature-themed-background-image--p88P6EqtSou8QpsbmUVdtQ-lCZJI24pRUqsxiG-aIRO3w.jpeg'; // Update the path accordingly
 import logo123 from '../pages/_cb51d42b-3c39-429a-9938-7f881cd0f4dc.jpeg';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Login() {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [hover, setHover] = useState({ button: false, inputEmail: false, inputPassword: false });
 
+  const navigate=useNavigate()
   const handleClick = async (e) => {
     e.preventDefault();
     const response = await fetch('http://localhost:4000/user/login', {
@@ -23,6 +25,8 @@ export default function Login() {
     if (json.success) {
       console.log('Login successful');
       console.log(json.accesstoken);
+      localStorage.setItem('user-token',json.accesstoken)
+      navigate('/home')
     } else {
       alert(json.message);
     }

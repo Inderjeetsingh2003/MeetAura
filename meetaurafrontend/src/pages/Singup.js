@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Googleauth from '../components/Googleauth';
 import backgroundImage from '../pages/a-captivating-dark-nature-themed-background-image--p88P6EqtSou8QpsbmUVdtQ-lCZJI24pRUqsxiG-aIRO3w.jpeg'; // Update the path accordingly
 import logo123 from '../pages/_cb51d42b-3c39-429a-9938-7f881cd0f4dc.jpeg';
-
+import {Link, useNavigate}from 'react-router-dom'
 export default function Signup() {
+
+  const navigate=useNavigate()
   const [signupCredentials, setSignupCredentials] = useState({
     name: '',
     email: '',
@@ -39,6 +41,8 @@ export default function Signup() {
       if (json.success) {
         console.log('Signup successfully done');
         console.log(json.accesstoken);
+        localStorage.setItem('user-token',json.accesstoken)
+        navigate('/home')
       } else {
         alert(json.message);
       }
@@ -136,10 +140,7 @@ export default function Signup() {
               onMouseLeave={() => setHover({ ...hover, inputConfirmPassword: false })}
             />
           </div>
-          <div style={styles.formCheck}>
-            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-            <label className="form-check-label" htmlFor="exampleCheck1" style={styles.formCheckLabel}>Check me out</label>
-          </div>
+              <div><p style={{color:"white"}}> already have an account?<Link to='/login'><p>login</p></Link></p> </div>
           <button
             type="submit"
             className="btn btn-primary"
