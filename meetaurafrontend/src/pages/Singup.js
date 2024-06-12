@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Googleauth from '../components/Googleauth';
 import backgroundImage from '../pages/a-captivating-dark-nature-themed-background-image--p88P6EqtSou8QpsbmUVdtQ-lCZJI24pRUqsxiG-aIRO3w.jpeg'; // Update the path accordingly
-import logo123 from '../pages/_cb51d42b-3c39-429a-9938-7f881cd0f4dc.jpeg';
+import logo123 from '../pages/My first design (1).png';
 import {Link, useNavigate}from 'react-router-dom'
 export default function Signup() {
 
@@ -60,11 +60,10 @@ export default function Signup() {
      <img src={logo123} alt="Logo" style={styles.logo} />
       <div style={styles.leftSide}>
         <div style={styles.textCard}>
-          <h1 style={styles.textCardTitle}><br/><br/><br/>Welcome to Meet Aura<br/><br/><br/><br/></h1>
+          <h1 style={styles.textCardTitle}><br/><br/> Welcome to Meet Aura<br/>  <br/><br/> </h1>
           <p style={styles.textCardDescription}>
             Welcome to Meet Aura, where virtual interactions are elevated to new heights! Our platform revolutionizes video conferencing and collaboration, providing an innovative and seamless experience for users worldwide.
-            <br/><br/> With Meet Aura, you can enjoy crystal-clear video calls that bring you closer to your friends, family, colleagues, or clients. Our high-quality video ensures that every conversation feels personal and engaging, whether you're connecting across the street or across the globe.
-            <br/><br/> But that's not all. Meet Aura also offers robust screen sharing capabilities, allowing you to effortlessly share presentations.
+            <br/><br/>   <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/> 
           </p>
         </div>
       </div>
@@ -140,7 +139,8 @@ export default function Signup() {
               onMouseLeave={() => setHover({ ...hover, inputConfirmPassword: false })}
             />
           </div>
-              <div><p style={{color:"white"}}> already have an account?<Link to='/login'><p>login</p></Link></p> </div>
+              <div><p style={{color:"white"}}> already have an account?<Link to='/login' ><p>login</p></Link></p> </div>
+              
           <button
             type="submit"
             className="btn btn-primary"
@@ -194,7 +194,7 @@ const styles = {
     color: '#FFFFFF',
     textAlign: 'justify',
     width: '100%',
-    maxWidth: '700px',
+    maxWidth: '900px',
   },
   textCardTitle: {
     fontSize: '28px',
@@ -208,8 +208,8 @@ const styles = {
   logo: {
     position: 'absolute',
     top: '20px',
-    left: '20px',
-    height: '60px',
+    left: '40px',
+    height: '80px',
     width: 'auto',
     padding: '10px',
   },
