@@ -1,0 +1,38 @@
+/* components/UserDetailsDialog.css */
+.user-details-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.user-details-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-details-dialog-content h2 {
+  margin-top: 0;
+}
+
+.user-details-dialog-content button {
+  align-self: flex-end;
+  padding: 5px 10px;
+  margin-top: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.user-details-dialog-content input {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
