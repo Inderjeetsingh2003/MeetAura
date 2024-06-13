@@ -1,64 +1,48 @@
+ /* CreateRoom.css */
+
 .create-room-form {
-    max-width: 500px;
-    margin: auto;
-    padding: 2rem;
-    background: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    padding: 20px; /* Padding around the form */
+}
+
+.modal-content {
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Shadow for depth */
+}
+
+.modal-header {
+    background-color: #007bff; /* Header background color */
+    color: white; /* Header text color */
+    border-top-left-radius: 8px; /* Rounded corners for the header */
+    border-top-right-radius: 8px;
+    padding: 15px; /* Padding inside the header */
+    border-bottom: 1px solid rgba(0,0,0,0.2); /* Bottom border */
+}
+
+.modal-body {
+    padding: 20px; /* Padding inside the modal body */
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 20px; /* Vertical spacing between form groups */
 }
 
-.form-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #333;
+.btn-close-white {
+    color: white; /* Close button text color */
+    opacity: 1; /* Ensure full opacity */
 }
 
-.form-control {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-.form-control:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-.form-select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-.form-select:focus {
-    border-color: #007bff;
-    outline: none;
+.btn-close-white:hover {
+    color: white; /* Hover color */
+    opacity: 0.75; /* Reduce opacity on hover */
 }
 
 .btn-primary {
-    display: block;
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: #007bff; /* Button background color */
+    border-color: #007bff; /* Button border color */
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker background color on hover */
+    border-color: #0056b3; /* Darker border color on hover */
 }

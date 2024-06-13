@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Googleauth from '../components/Googleauth';
-import backgroundImage from '../pages/a-captivating-dark-nature-themed-background-image--p88P6EqtSou8QpsbmUVdtQ-lCZJI24pRUqsxiG-aIRO3w.jpeg'
+import backgroundImage from '../assects/a-captivating-dark-nature-themed-background-image--p88P6EqtSou8QpsbmUVdtQ-lCZJI24pRUqsxiG-aIRO3w.jpeg'
  
-import logo123 from '../pages/My first design (1).png';
+import logo123 from '../assects/My first design (1).png';
 import { Link, useNavigate } from 'react-router-dom';
 
 
@@ -90,7 +90,7 @@ export default function Login() {
               onMouseLeave={() => setHover({ ...hover, inputPassword: false })}
             />
           </div>
-          <div><p style={{color:'white'}}> do not have an account?</p><Link to='/'> singup</Link></div>
+          <div  style={styles.Linkdiv}><p style={{color:'white'}}> do not have an account?</p><Link style={styles.Link}to='/'> Sign up</Link></div>
           <button
             type="submit"
             style={{
@@ -208,4 +208,17 @@ const styles = {
     transition: 'background-color 0.3s',
     width: '100%',
   },
+  Link: {
+    textDecoration: 'none',
+    color:'#fff ',
+    fontweight: '500',
+    transition: 'color 0.3s ease', 
+    backgroundColor:'#8dabf9',
+    borderRadius:'13px',
+    marginBottom:'20px',
+    padding:'10px'
+  },
+  Linkdiv:{
+    padding:'20px'
+  }
 };

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Googleauth from '../components/Googleauth';
-import backgroundImage from '../pages/a-captivating-dark-nature-themed-background-image--p88P6EqtSou8QpsbmUVdtQ-lCZJI24pRUqsxiG-aIRO3w.jpeg'; // Update the path accordingly
-import logo123 from '../pages/My first design (1).png';
+import backgroundImage from '../assects/a-captivating-dark-nature-themed-background-image--p88P6EqtSou8QpsbmUVdtQ-lCZJI24pRUqsxiG-aIRO3w.jpeg'; 
+
+import logo123 from '../assects/My first design (1).png';
 import {Link, useNavigate}from 'react-router-dom'
 export default function Signup() {
 
@@ -139,8 +140,8 @@ export default function Signup() {
               onMouseLeave={() => setHover({ ...hover, inputConfirmPassword: false })}
             />
           </div>
-              <div><p style={{color:"white"}}> already have an account?<Link to='/login' ><p>login</p></Link></p> </div>
-              
+              <div style={styles.Linkdiv}><p style={{color:"white"}}> already have an account? <Link style={styles.Link}  to='/login' ><pre>   login</pre></Link></p> </div>
+                  
           <button
             type="submit"
             className="btn btn-primary"
@@ -269,4 +270,22 @@ const styles = {
     transition: 'background-color 0.3s',
     width: '100%',
   },
+  Link: {
+    textDecoration: 'none',
+    color:'#fff ',
+    fontweight: '500',
+    transition: 'color 0.3s ease', 
+    backgroundColor:'#8dabf9',
+    borderRadius:'13px',
+    marginBottom:'20px',
+    padding:'3px',
+    display: 'block',
+    maxWidth:'30%',
+    paddingtop:'3px',
+    fontfamily: "Times New Roman",
+
+  },
+  Linkdiv:{
+    padding:'20px'
+  }
 };
