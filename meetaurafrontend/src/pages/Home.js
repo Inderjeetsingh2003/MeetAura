@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import CreateRoom from '../components/CreateRoom';
 import { useNavigate } from 'react-router-dom';
+import PulbicRooms from '../components/PulbicRooms';
+import { Roomcontext } from '../context/RoomContext';
 
 export default function Home() {
   const [createroom, setCreateRoom] = useState(false);
@@ -32,18 +34,25 @@ export default function Home() {
     cursor: 'pointer',
     transition: 'transform 0.5s ease-in-out, background-color 0.5s ease-in-out',
     transform: rotate ? 'rotate(360deg)' : 'rotate(0deg)',
-    backgroundColor: rotate ? '#ff5733' : '#3498db',
+    backgroundColor: rotate ? '#ff2587' : '#3498db',
     color: '#fff',
     border: 'none',
     outline: 'none',
   };
+
+
+  const {getpublicrooms}=useContext(Roomcontext)
+  useEffect(() => {
+    getpublicrooms()
+  }, [])
+  
   return (
     <>
-      {!createroom && (
+      <PulbicRooms/>
         <button style={buttonStyle} onClick={handleClick}>
           +
         </button>
-      )}
+      
       {createroom && <CreateRoom handleClick={handleClick} />}
     </>
   );
