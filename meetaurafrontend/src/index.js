@@ -7,14 +7,18 @@ import { Roomprovider } from './context/RoomContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { UserProvider } from './context/Usercontext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
+        <UserProvider>
     <Roomprovider>
 
-    <App />
+            <App />
+
     </Roomprovider>
+        </UserProvider>
  
 );
 

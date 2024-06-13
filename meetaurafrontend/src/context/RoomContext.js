@@ -33,7 +33,9 @@ const Roomprovider = (props) => {
         }
 
 
-  return <Roomcontext.Provider value={{getpublicrooms,PublicRooms}}>{props.children}</Roomcontext.Provider>;
+  return <Roomcontext.Provider value={{getpublicrooms,PublicRooms}}>
+    {props.children}
+    </Roomcontext.Provider>;
 };
 
 export{Roomcontext,Roomprovider}

@@ -3,6 +3,7 @@ import CreateRoom from '../components/CreateRoom';
 import { useNavigate } from 'react-router-dom';
 import PulbicRooms from '../components/PulbicRooms';
 import { Roomcontext } from '../context/RoomContext';
+import { Usercontext } from '../context/Usercontext';
 
 export default function Home() {
   const [createroom, setCreateRoom] = useState(false);
@@ -42,8 +43,10 @@ export default function Home() {
 
 
   const {getpublicrooms}=useContext(Roomcontext)
+  const{getuserdetails}=useContext(Usercontext)
   useEffect(() => {
     getpublicrooms()
+    getuserdetails()
   }, [])
   
   return (
