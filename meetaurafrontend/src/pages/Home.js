@@ -26,7 +26,7 @@ export default function Home() {
       navigate('/login');
     } else {
       getpublicrooms();
-
+    
       // Fetch user details
       const fetchUserDetails = async () => {
         try {
@@ -39,11 +39,13 @@ export default function Home() {
 
       fetchUserDetails();
     }
-  }, [navigate, getpublicrooms, getuserdetails]);
+  }, []);
 
   const handleClick = () => {
     setCreateRoom(!createroom);
     setRotate(!rotate);
+
+    getpublicrooms()
   };
 
   const handleUserDetails = () => {
@@ -69,7 +71,7 @@ export default function Home() {
   return (
     <div className="home-container">
       <nav className="navbar">
-        <button onClick={() => navigate('/')}><img src={logo1} /></button>
+        <button onClick={() => navigate('/home')}><img src={logo1} /></button>
         <button onClick={handleUserDetails}><img src={logo2} /></button>
         <button onClick={handleEditDetails}><img src={logo3} /></button>
       </nav>

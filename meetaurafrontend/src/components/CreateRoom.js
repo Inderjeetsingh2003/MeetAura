@@ -42,7 +42,7 @@ export default function CreateRoom(props) {
 
         const json = await response.json();
         if (json.success) {
-            props.handleclick();
+            props.handleClick();
             alert(json.message);
         } else {
             alert(json.message);
