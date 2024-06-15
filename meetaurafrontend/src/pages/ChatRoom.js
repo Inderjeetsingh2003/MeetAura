@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import styled from 'styled-components';
 import { Usercontext } from '../context/Usercontext';
-
+import Alert from'../components/Alert'
 // Styled-components for the chat
 const ChatContainer = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ const MessageBubble = styled.div`
 `;
 
 export default function ChatRoom() {
-  const { userdetail, getuserdetails } = useContext(Usercontext);
+  const { userdetail, getuserdetails,showalert ,alert} = useContext(Usercontext);
   const [messages, setMessages] = useState([]);
   const [messagetosend, setMessageToSend] = useState('');
   const { id } = useParams();
@@ -42,6 +42,8 @@ export default function ChatRoom() {
 
     socket.on('userconnected', (data) => {
       console.log(data);
+     // showalert(data,'success')
+
     });
 
     socket.on('message', ({ message, username }) => {
@@ -69,7 +71,9 @@ export default function ChatRoom() {
 
   return (
     <div>
+      
       <h1>ChatRoom</h1>
+      
       <ChatContainer>
         {messages.map((msg, index) => {
           const isSender = msg.username === userdetail.username;
