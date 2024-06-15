@@ -1,7 +1,7 @@
 import React from 'react';
 import { app } from './FireBase';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import   './googlebutton.css'// Import the CSS file
+import   '../css/googlebutton.css'// Import the CSS file
 import { useNavigate } from 'react-router-dom';
 
 export default function Googleauth() {

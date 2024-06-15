@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import PulbicRooms from '../components/PulbicRooms';
 import { Roomcontext } from '../context/RoomContext';
 import { Usercontext } from '../context/Usercontext';
-import '../pages/Home.css'; // Import the CSS file
+import '../css/Home.css'; // Import the CSS file
 
 import Navbar from '../components/Navbar';
 

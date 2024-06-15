@@ -2,6 +2,7 @@ import React, { useContext,useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import { Usercontext } from '../context/Usercontext'
 import Alert from './Alert'
+import '../css/userDetail.css'
 
 
 export default function UserProfile() {

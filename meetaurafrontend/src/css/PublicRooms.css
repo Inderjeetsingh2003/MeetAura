@@ -11,12 +11,12 @@
 /* Card styling */
 .card {
     width: 18rem;
-    border: 1px solid #ddd; /* Border for cards */
+    border: 1px solid #666565; /* Border for cards */
     border-radius: 8px;
     overflow: hidden; /* Ensures images don't overflow */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
     transition: transform 0.2s ease-in-out; /* Smooth transition for hover effect */
-    background-color: rgba(255, 255, 255, 0.9); /* Background color slightly transparent */
+    background-color: #403c3ce6; /* Background color slightly transparent */
     margin-top:80px;
  
 }
@@ -39,19 +39,20 @@
 .card-title {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    color: #333; /* Title text color */
+    color: #ffffff; /* Title text color */
 }
 
 .card-text {
     font-size: 1rem;
-    color: #666; /* Text color */
+    color: #ffffff; /* Text color */
     margin-bottom: 1rem;
 }
 
 .list-group-item {
     border: none;
     padding: 0.5rem 1rem;
-    background-color: rgba(0, 0, 0, 0.05); /* Transparent background for list items */
+    background-color: #403c3ce6; /* Transparent background for list items */
+    color: #ffffff;
 }
 
 .card-link {

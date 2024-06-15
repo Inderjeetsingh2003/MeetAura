@@ -1,5 +1,5 @@
 
-import './App.css';
+import './css/App.css';
 import Googleauth from './components/Googleauth';
 import Login from './pages/Login';
 import{createBrowserRouter,RouterProvider} from 'react-router-dom'

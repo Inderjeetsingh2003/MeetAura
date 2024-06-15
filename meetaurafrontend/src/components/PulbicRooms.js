@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Roomcontext } from '../context/RoomContext';
-import './PublicRooms.css'; // Import your CSS file
+import '../css/PublicRooms.css'; // Import your CSS file
 import logo123 from '../assects/Memorable design.jpeg';
 import { useNavigate } from 'react-router-dom';
 
