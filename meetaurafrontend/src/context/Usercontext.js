@@ -63,7 +63,7 @@ const UserProvider = (props) => {
       }, 1500);
   }
   return (
-    <Usercontext.Provider value={{ getuserdetails, userdetail,updateuser,alert }}>
+    <Usercontext.Provider value={{ getuserdetails, userdetail,updateuser,alert,showalert}}>
       {props.children}
     </Usercontext.Provider>
   );
