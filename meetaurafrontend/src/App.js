@@ -11,6 +11,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import ChatRoom from './pages/ChatRoom';
 import UserProfile from './components/UserProfile';
 import Alert from './components/Alert';
+import ForgetPassword from './components/ForgetPassword';
+import ResetPassword from './components/ResetPassword';
 
 function App() {
 const router=createBrowserRouter([
@@ -37,6 +39,14 @@ const router=createBrowserRouter([
   {
     path:'/alert',
     element:<Alert/>
+  },
+  {
+    path:"/forgotpassword",
+    element:<ForgetPassword/>
+  },
+  {
+    path:'resetpassword/:token',
+    element:<ResetPassword/>
   }
 
 ])

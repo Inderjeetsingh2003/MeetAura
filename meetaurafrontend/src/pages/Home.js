@@ -47,7 +47,7 @@ export default function Home() {
     <div className="home-container">
     
 <Navbar />
-      <PulbicRooms />
+      <PulbicRooms/>
       
       <button className="create-room-button" onClick={handleClick}>
         +

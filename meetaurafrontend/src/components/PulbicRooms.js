@@ -23,7 +23,7 @@ const handleclick=(roomid)=>
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">Access Type: {room.accesstype}</li>
                         <li className="list-group-item">Room Type: {room.roomtype}</li>
-                        <li className="list-group-item">Admin: {room.admin.username}</li>
+                        {room.admin.username&& <li className="list-group-item">Admin: {room.admin.username}</li>}
                         {/* Add more details as needed */}
                     </ul>
                    

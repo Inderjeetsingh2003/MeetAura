@@ -102,6 +102,7 @@ export default function Login() {
           >
             Login
           </button>
+          <Link  to ='/forgotpassword'>forgotpassword</Link>
           <Googleauth />
         </form>
       </div>
