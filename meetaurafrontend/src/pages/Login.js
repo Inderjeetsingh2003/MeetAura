@@ -42,10 +42,10 @@ export default function Login() {
       <div style={styles.leftSide}>
         <img src={logo123} alt="Logo" style={styles.logo} />
         <div style={styles.textCard}>
-          <h1 style={styles.textCardTitle}><br/>  <br/><br/>    Welcome to Meet Aura <br/></h1>
+          <h2 style={styles.textCardTitle}>   <br/><br/> <br/><br/> Welcome to Meet Aura  </h2>
           <p style={styles.textCardDescription}>
           <br/><br/> <br/> Welcome to Meet Aura, where virtual interactions are elevated to new heights! Our platform revolutionizes video conferencing and collaboration, providing an innovative and seamless experience for users worldwide.
-            <br/><br/><br/>   <br/><br/><br/>   <br/><br/><br/>   <br/><br/><br/>   <br/><br/><br/>   <br/><br/><br/>    
+            <br/><br/><br/>   <br/><br/><br/>   <br/><br/><br/>   <br/><br/><br/>   <br/><br/><br/>      
           </p>
         </div>
       </div>
@@ -115,6 +115,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     height: '100vh',
+    width: '100vw', // Added this line to make it take the whole width
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -125,7 +126,8 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'center',
-    padding: '40px',
+   
+    
   },
   logo: {
     position: 'absolute',
@@ -143,6 +145,7 @@ const styles = {
     textAlign: 'justify',
     width: '100%',
     maxWidth: '900px',
+    height: '100vh'
   },
   textCardTitle: {
     fontSize: '28px',

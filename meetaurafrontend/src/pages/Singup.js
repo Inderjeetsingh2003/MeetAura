@@ -61,10 +61,10 @@ export default function Signup() {
      <img src={logo123} alt="Logo" style={styles.logo} />
       <div style={styles.leftSide}>
         <div style={styles.textCard}>
-          <h1 style={styles.textCardTitle}><br/><br/> Welcome to Meet Aura<br/>  <br/><br/> </h1>
+          <h2 style={styles.textCardTitle}><br/><br/> <br/><br/> Welcome to Meet Aura<br/>  <br/><br/> </h2>
           <p style={styles.textCardDescription}>
-            Welcome to Meet Aura, where virtual interactions are elevated to new heights! Our platform revolutionizes video conferencing and collaboration, providing an innovative and seamless experience for users worldwide.
-            <br/><br/>   <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/> 
+           Welcome to Meet Aura, where virtual interactions are elevated to new heights! Our platform revolutionizes video conferencing and collaboration, providing an innovative and seamless experience for users worldwide.
+             <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/> 
           </p>
         </div>
       </div>
@@ -168,6 +168,7 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     height: '100vh',
+    width: '100vw',
     backgroundColor: '#1E1E1E',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -196,6 +197,7 @@ const styles = {
     textAlign: 'justify',
     width: '100%',
     maxWidth: '900px',
+    height: '100vh',
   },
   textCardTitle: {
     fontSize: '28px',

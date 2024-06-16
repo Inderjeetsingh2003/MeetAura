@@ -8,17 +8,18 @@ import Alert from '../components/Alert';
 import Sendlogo from '../assects/send (2).png';
 
 const ChatContainer = styled.div`
+flex: 1;
 display: flex;
 flex-direction: column;
- * Increased padding */
-/* Adjust for fixed footer */
 overflow-y: auto;
-flex: 1;
-background-color: rgba(19, 18, 18, 0.7);
+background-color: hsla(0, 3%, 7%, 0.7); /* Translucent background */
 border-radius: 10px; /* Optional: to give a rounded border effect */
-margin: 200px;
-margin-top: 60px; /* Adjust for fixed header */
-margin-bottom: 60px; 
+width: 73vw; 
+height: 80vh;
+ 
+margin-bottom: 60px; /* Adjust for fixed footer */
+padding-top: 200px;
+margin-top: 60px;
 `;
 
 const Message = styled.div`

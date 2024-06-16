@@ -1,55 +1,58 @@
 body {
  
-    color: #333;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-  
-  h1 {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-    padding: 10px;
-    color: #ffffff;
-    width: 100%;
-    text-align: center;
-    z-index: 1;
-  }
-  
-  .ChatContainer {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    background-color: hsla(0, 3%, 7%, 0.7); /* Translucent background */
-    border-radius: 10px; /* Optional: to give a rounded border effect */
-    margin-top: 60px; /* Adjust for fixed header */
-    margin-bottom: 60px; /* Adjust for fixed footer */
-  }
-  
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-   
-  }
-    
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
-   img {
-    width: 40px; /* Ensure all logos are the same size */
-    height: 40px; /* Ensure all logos are the same size */
-    border-radius: 50%;
-   }
+h1 {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 10px;
+  color: #ffffff;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+.ChatContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background-color: hsla(0, 3%, 7%, 0.7); /* Translucent background */
+  border-radius: 10px; /* Optional: to give a rounded border effect */
+  width: 73vw; 
+  height: 100vh;
+  margin-top: 60px; /* Adjust for fixed header */
+  margin-bottom: 60px; /* Adjust for fixed footer */
+   
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+ 
+}
+  
+
+ img {
+  width: 40px; /* Ensure all logos are the same size */
+  height: 40px; /* Ensure all logos are the same size */
+  border-radius: 50%;
+ }
