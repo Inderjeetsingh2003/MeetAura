@@ -9,7 +9,7 @@ import '../css/Home.css'; // Import the CSS file
 import Navbar from '../components/Navbar';
 
 export default function Home() {
-  const [createroom, setCreateRoom] = useState(false);
+  const [createroom, setcreateRoom] = useState(false);
   const [rotate, setRotate] = useState(false);
  
   const navigate = useNavigate();
@@ -29,10 +29,10 @@ export default function Home() {
 
   // creating of room
   const handleClick = () => {
-    setCreateRoom(!createroom);
+    setcreateRoom(!createroom);
     setRotate(!rotate);
-
-    getpublicrooms()
+    console.log("handle click to construct the room is clicked")
+    //getpublicrooms()
   };
 
 
@@ -52,6 +52,7 @@ export default function Home() {
       <button className="create-room-button" onClick={handleClick}>
         +
       </button>
+      {createroom&&<CreateRoom/>}
 
      
     

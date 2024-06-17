@@ -11,6 +11,7 @@ export default function CreateRoom(props) {
         description: '',
         accesstype: 'public',
         roomtype: 'chat',
+        joincode:''
     });
 
     const modalRef = useRef(null);
@@ -21,6 +22,22 @@ export default function CreateRoom(props) {
         modal.show();
     }, []);
 
+useEffect(()=>
+{
+if(Roomdetails.accesstype==='private'&&!Roomdetails.joincode)
+    {
+        console.log("joinroom useeffect is triggered")
+        generateroomcode()
+    }
+},[Roomdetails.accesstype])
+
+     function generateroomcode() {
+       const code= Math.floor(10000 + Math.random() * 90000).toString();
+       SetRoomdetails(prevState => ({
+        ...prevState,
+        joincode: code
+    }));
+    }
     const handleclick = async (e) => {
         e.preventDefault();
         console.log("The room details are:", Roomdetails);
@@ -72,6 +89,8 @@ export default function CreateRoom(props) {
                                     name="title"
                                     onChange={handlechange}
                                     value={Roomdetails.title}
+                                    style={{backgroundColor:'white'}}
+                                    placeholder='title'
                                 />
                             </div>
                             <div className="mb-3">
@@ -83,6 +102,8 @@ export default function CreateRoom(props) {
                                     name="description"
                                     onChange={handlechange}
                                     value={Roomdetails.description}
+                                    style={{backgroundColor:'white'}}
+                                    placeholder='description'
                                 />
                             </div>
                             <div className="mb-3">
@@ -96,8 +117,23 @@ export default function CreateRoom(props) {
                                 >
                                     <option value="public">Public</option>
                                     <option value="private">Private</option>
+                                    
                                 </select>
                             </div>
+                            {Roomdetails.accesstype==='private'?(    <div className="mb-3">
+                                <label htmlFor="description" className="form-label"><b>JOINCODE</b></label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="joincode"
+                                    name="joincode"
+                                    value={Roomdetails.joincode}
+                                   readOnly
+                                    
+                                    style={{backgroundColor:'white'}}
+                                    placeholder='JoinCode'
+                                />
+                            </div>):''}
                             <div className="mb-3">
                                 <label htmlFor="roomtype" className="form-label">Room Type</label>
                                 <select
@@ -116,6 +152,7 @@ export default function CreateRoom(props) {
                     </div>
                 </div>
             </div>
+            
         </div>
     );
 }
