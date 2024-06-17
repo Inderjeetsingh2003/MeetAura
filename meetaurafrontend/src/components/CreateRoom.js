@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Ensure this is correctly imported
 import '../css/CreateRoom.css';
-
-
 
 export default function CreateRoom(props) {
     const [Roomdetails, SetRoomdetails] = useState({
@@ -17,9 +15,32 @@ export default function CreateRoom(props) {
 
     useEffect(() => {
         const modalElement = modalRef.current;
-        const modal = new bootstrap.Modal(modalElement);
+        const modal = new window.bootstrap.Modal(modalElement); // Use window.bootstrap.Modal
         modal.show();
-    }, []);
+    }, [])
+
+// import React, { useState, useEffect, useRef } from 'react';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+// import '../css/CreateRoom.css';
+
+
+
+// export default function CreateRoom(props) {
+//     const [Roomdetails, SetRoomdetails] = useState({
+//         title: '',
+//         description: '',
+//         accesstype: 'public',
+//         roomtype: 'chat',
+//     });
+
+//     const modalRef = useRef(null);
+
+//     useEffect(() => {
+//         const modalElement = modalRef.current;
+//         const modal = new bootstrap.Modal(modalElement);
+//         modal.show();
+//     }, []);
 
     const handleclick = async (e) => {
         e.preventDefault();
