@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import Googleauth from '../components/Googleauth';
-import backgroundImage from '../assects/a-captivating-dark-nature-themed-background-image--p88P6EqtSou8QpsbmUVdtQ-lCZJI24pRUqsxiG-aIRO3w.jpeg'; 
-
+import backgroundImage from '../assects/a-captivating-dark-nature-themed-background-image--p88P6EqtSou8QpsbmUVdtQ-lCZJI24pRUqsxiG-aIRO3w.jpeg';
 import logo123 from '../assects/My first design (1).png';
-import {Link, useNavigate}from 'react-router-dom'
-export default function Signup() {
+import { Link, useNavigate } from 'react-router-dom';
 
-  const navigate=useNavigate()
+export default function Signup() {
+  const navigate = useNavigate();
   const [signupCredentials, setSignupCredentials] = useState({
     name: '',
     email: '',
@@ -22,49 +21,66 @@ export default function Signup() {
     inputConfirmPassword: false,
   });
 
+  const [error, setError] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+
   const handleClick = async (e) => {
     e.preventDefault();
-    if (signupCredentials.password === signupCredentials.confirmPassword) {
-      const response = await fetch('http://localhost:4000/user/signup', {
-        mode: 'cors',
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: signupCredentials.name,
-          email: signupCredentials.email,
-          password: signupCredentials.password,
-        }),
-      });
+    
+    // Basic validation
+    const errors = {};
+    if (!signupCredentials.name) errors.name = 'Name is required';
+    if (!signupCredentials.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) errors.email = 'Invalid email address';
+    if (signupCredentials.password.length < 6) errors.password = 'Password must be at least 6 characters long';
+    if (signupCredentials.password !== signupCredentials.confirmPassword) errors.confirmPassword = 'Passwords do not match';
 
-      const json = await response.json();
-      if (json.success) {
-        console.log('Signup successfully done');
-        console.log(json.accesstoken);
-        localStorage.setItem('user-token',json.accesstoken)
-        navigate('/home')
-      } else {
-        alert(json.message);
-      }
+    setError(errors);
+    
+    // If there are any validation errors, stop the form submission
+    if (Object.keys(errors).length > 0) return;
+
+    const response = await fetch('http://localhost:4000/user/signup', {
+      mode: 'cors',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: signupCredentials.name,
+        email: signupCredentials.email,
+        password: signupCredentials.password,
+      }),
+    });
+
+    const json = await response.json();
+    if (json.success) {
+      console.log('Signup successfully done');
+      console.log(json.accesstoken);
+      localStorage.setItem('user-token', json.accesstoken);
+      navigate('/home');
     } else {
-      alert('Password and confirm password do not match');
+      alert(json.message);
     }
   };
 
   const handleOnChange = (e) => {
     setSignupCredentials({ ...signupCredentials, [e.target.name]: e.target.value });
+    setError({ ...error, [e.target.name]: '' }); // Clear errors on input change
   };
 
   return (
     <div style={{ ...styles.signupContainer, backgroundImage: `url(${backgroundImage})` }}>
-     <img src={logo123} alt="Logo" style={styles.logo} />
+      <img src={logo123} alt="Logo" style={styles.logo} />
       <div style={styles.leftSide}>
         <div style={styles.textCard}>
-          <h2 style={styles.textCardTitle}><br/><br/> <br/><br/> Welcome to Meet Aura<br/>  <br/><br/> </h2>
+          <h2 style={styles.textCardTitle}><br /><br /> <br /><br /> Welcome to Meet Aura<br />  <br /><br /> </h2>
           <p style={styles.textCardDescription}>
-           Welcome to Meet Aura, where virtual interactions are elevated to new heights! Our platform revolutionizes video conferencing and collaboration, providing an innovative and seamless experience for users worldwide.
-             <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/> 
+            Welcome to Meet Aura, where virtual interactions are elevated to new heights! Our platform revolutionizes video conferencing and collaboration, providing an innovative and seamless experience for users worldwide.
+            <br /><br />  <br /><br />  <br /><br />  <br /><br />  <br /><br />  <br /><br />  <br /><br />
           </p>
         </div>
       </div>
@@ -82,11 +98,13 @@ export default function Signup() {
               onChange={handleOnChange}
               style={{
                 ...styles.formControl,
-                borderColor: hover.inputName ? '#777777' : '#555555',
+                borderColor: hover.inputName ? '#777777' : error.name ? 'red' : '#555555',
+                boxShadow: error.name ? '0 0 5px red' : 'none',
               }}
               onMouseEnter={() => setHover({ ...hover, inputName: true })}
               onMouseLeave={() => setHover({ ...hover, inputName: false })}
             />
+            {error.name && <div style={{ color: 'red', fontSize: '0.875em' }}>{error.name}</div>}
           </div>
           <div style={styles.formGroup}>
             <label htmlFor="email" style={styles.formLabel}>Email address</label>
@@ -99,11 +117,13 @@ export default function Signup() {
               onChange={handleOnChange}
               style={{
                 ...styles.formControl,
-                borderColor: hover.inputEmail ? '#777777' : '#555555',
+                borderColor: hover.inputEmail ? '#777777' : error.email ? 'red' : '#555555',
+                boxShadow: error.email ? '0 0 5px red' : 'none',
               }}
               onMouseEnter={() => setHover({ ...hover, inputEmail: true })}
               onMouseLeave={() => setHover({ ...hover, inputEmail: false })}
             />
+            {error.email && <div style={{ color: 'red', fontSize: '0.875em' }}>{error.email}</div>}
             <div style={styles.formText}>We'll never share your email with anyone else.</div>
           </div>
           <div style={styles.formGroup}>
@@ -117,11 +137,13 @@ export default function Signup() {
               onChange={handleOnChange}
               style={{
                 ...styles.formControl,
-                borderColor: hover.inputPassword ? '#777777' : '#555555',
+                borderColor: hover.inputPassword ? '#777777' : error.password ? 'red' : '#555555',
+                boxShadow: error.password ? '0 0 5px red' : 'none',
               }}
               onMouseEnter={() => setHover({ ...hover, inputPassword: true })}
               onMouseLeave={() => setHover({ ...hover, inputPassword: false })}
             />
+            {error.password && <div style={{ color: 'red', fontSize: '0.875em' }}>{error.password}</div>}
           </div>
           <div style={styles.formGroup}>
             <label htmlFor="confirmPassword" style={styles.formLabel}>Confirm Password</label>
@@ -134,14 +156,17 @@ export default function Signup() {
               onChange={handleOnChange}
               style={{
                 ...styles.formControl,
-                borderColor: hover.inputConfirmPassword ? '#777777' : '#555555',
+                borderColor: hover.inputConfirmPassword ? '#777777' : error.confirmPassword ? 'red' : '#555555',
+                boxShadow: error.confirmPassword ? '0 0 5px red' : 'none',
               }}
               onMouseEnter={() => setHover({ ...hover, inputConfirmPassword: true })}
               onMouseLeave={() => setHover({ ...hover, inputConfirmPassword: false })}
             />
+            {error.confirmPassword && <div style={{ color: 'red', fontSize: '0.875em' }}>{error.confirmPassword}</div>}
           </div>
-              <div style={styles.Linkdiv}><p style={{color:"white"}}> already have an account? <Link style={styles.Link}  to='/login' ><pre>   login</pre></Link></p> </div>
-                  
+          <div style={styles.Linkdiv}>
+            <p style={{ color: 'white' }}>Already have an account?<Link style={styles.Link} to='/login'> <pre>login</pre></Link></p>
+          </div>
           <button
             type="submit"
             className="btn btn-primary"
@@ -161,6 +186,172 @@ export default function Signup() {
     </div>
   );
 }
+
+
+
+// import React, { useState } from 'react';
+// import Googleauth from '../components/Googleauth';
+// import backgroundImage from '../assects/a-captivating-dark-nature-themed-background-image--p88P6EqtSou8QpsbmUVdtQ-lCZJI24pRUqsxiG-aIRO3w.jpeg'; 
+
+// import logo123 from '../assects/My first design (1).png';
+// import {Link, useNavigate}from 'react-router-dom'
+// export default function Signup() {
+
+//   const navigate=useNavigate()
+//   const [signupCredentials, setSignupCredentials] = useState({
+//     name: '',
+//     email: '',
+//     password: '',
+//     confirmPassword: '',
+//   });
+
+//   const [hover, setHover] = useState({
+//     button: false,
+//     inputName: false,
+//     inputEmail: false,
+//     inputPassword: false,
+//     inputConfirmPassword: false,
+//   });
+
+//   const handleClick = async (e) => {
+//     e.preventDefault();
+//     if (signupCredentials.password === signupCredentials.confirmPassword) {
+//       const response = await fetch('http://localhost:4000/user/signup', {
+//         mode: 'cors',
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({
+//           name: signupCredentials.name,
+//           email: signupCredentials.email,
+//           password: signupCredentials.password,
+//         }),
+//       });
+
+//       const json = await response.json();
+//       if (json.success) {
+//         console.log('Signup successfully done');
+//         console.log(json.accesstoken);
+//         localStorage.setItem('user-token',json.accesstoken)
+//         navigate('/home')
+//       } else {
+//         alert(json.message);
+//       }
+//     } else {
+//       alert('Password and confirm password do not match');
+//     }
+//   };
+
+//   const handleOnChange = (e) => {
+//     setSignupCredentials({ ...signupCredentials, [e.target.name]: e.target.value });
+//   };
+
+//   return (
+//     <div style={{ ...styles.signupContainer, backgroundImage: `url(${backgroundImage})` }}>
+//      <img src={logo123} alt="Logo" style={styles.logo} />
+//       <div style={styles.leftSide}>
+//         <div style={styles.textCard}>
+//           <h2 style={styles.textCardTitle}><br/><br/> <br/><br/> Welcome to Meet Aura<br/>  <br/><br/> </h2>
+//           <p style={styles.textCardDescription}>
+//            Welcome to Meet Aura, where virtual interactions are elevated to new heights! Our platform revolutionizes video conferencing and collaboration, providing an innovative and seamless experience for users worldwide.
+//              <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/>  <br/><br/> 
+//           </p>
+//         </div>
+//       </div>
+//       <div style={styles.rightSide}>
+//         <form style={styles.signupForm} onSubmit={handleClick}>
+//           <h2 style={styles.signupFormTitle}>Sign Up</h2>
+//           <div style={styles.formGroup}>
+//             <label htmlFor="name" style={styles.formLabel}>Name</label>
+//             <input
+//               type="text"
+//               className="form-control"
+//               id="name"
+//               name="name"
+//               value={signupCredentials.name}
+//               onChange={handleOnChange}
+//               style={{
+//                 ...styles.formControl,
+//                 borderColor: hover.inputName ? '#777777' : '#555555',
+//               }}
+//               onMouseEnter={() => setHover({ ...hover, inputName: true })}
+//               onMouseLeave={() => setHover({ ...hover, inputName: false })}
+//             />
+//           </div>
+//           <div style={styles.formGroup}>
+//             <label htmlFor="email" style={styles.formLabel}>Email address</label>
+//             <input
+//               type="email"
+//               className="form-control"
+//               id="email"
+//               name="email"
+//               value={signupCredentials.email}
+//               onChange={handleOnChange}
+//               style={{
+//                 ...styles.formControl,
+//                 borderColor: hover.inputEmail ? '#777777' : '#555555',
+//               }}
+//               onMouseEnter={() => setHover({ ...hover, inputEmail: true })}
+//               onMouseLeave={() => setHover({ ...hover, inputEmail: false })}
+//             />
+//             <div style={styles.formText}>We'll never share your email with anyone else.</div>
+//           </div>
+//           <div style={styles.formGroup}>
+//             <label htmlFor="password" style={styles.formLabel}>Password</label>
+//             <input
+//               type="password"
+//               className="form-control"
+//               id="password"
+//               name="password"
+//               value={signupCredentials.password}
+//               onChange={handleOnChange}
+//               style={{
+//                 ...styles.formControl,
+//                 borderColor: hover.inputPassword ? '#777777' : '#555555',
+//               }}
+//               onMouseEnter={() => setHover({ ...hover, inputPassword: true })}
+//               onMouseLeave={() => setHover({ ...hover, inputPassword: false })}
+//             />
+//           </div>
+//           <div style={styles.formGroup}>
+//             <label htmlFor="confirmPassword" style={styles.formLabel}>Confirm Password</label>
+//             <input
+//               type="password"
+//               className="form-control"
+//               id="confirmPassword"
+//               name="confirmPassword"
+//               value={signupCredentials.confirmPassword}
+//               onChange={handleOnChange}
+//               style={{
+//                 ...styles.formControl,
+//                 borderColor: hover.inputConfirmPassword ? '#777777' : '#555555',
+//               }}
+//               onMouseEnter={() => setHover({ ...hover, inputConfirmPassword: true })}
+//               onMouseLeave={() => setHover({ ...hover, inputConfirmPassword: false })}
+//             />
+//           </div>
+//               <div style={styles.Linkdiv}><p style={{color:"white"}}> already have an account? <Link style={styles.Link}  to='/login' ><pre>   login</pre></Link></p> </div>
+                  
+//           <button
+//             type="submit"
+//             className="btn btn-primary"
+//             style={{
+//               ...styles.button,
+//               backgroundColor: hover.button ? '#f7f7f7' : '#615efc',
+//               color: hover.button ? 'black' : '#E0E0E0',
+//             }}
+//             onMouseEnter={() => setHover({ ...hover, button: true })}
+//             onMouseLeave={() => setHover({ ...hover, button: false })}
+//           >
+//             Submit
+//           </button>
+//           <Googleauth />
+//         </form>
+//       </div>
+//     </div>
+//   );
+// }
 
 const styles = {
   signupContainer: {
