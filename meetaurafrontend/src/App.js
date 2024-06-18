@@ -13,7 +13,7 @@ import UserProfile from './components/UserProfile';
 import Alert from './components/Alert';
 import ForgetPassword from './components/ForgetPassword';
 import ResetPassword from './components/ResetPassword';
-import PrivateChatroom from './components/PrivateChatroom';
+
 
 function App() {
 const router=createBrowserRouter([
@@ -48,11 +48,8 @@ const router=createBrowserRouter([
   {
     path:'resetpassword/:token',
     element:<ResetPassword/>
-  },
-  {
-    path:'/privatechatroom',
-    element:<PrivateChatroom/>
   }
+ 
 
 ])
 

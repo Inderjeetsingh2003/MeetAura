@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Roomcontext } from '../context/RoomContext';
 import '../css/PublicRooms.css'; // Import your CSS file
-import logo123 from '../assects/Memorable design.jpeg';
 import { useNavigate } from 'react-router-dom';
 
 const PublicRooms = () => {
@@ -22,7 +21,7 @@ const PublicRooms = () => {
                     </div>
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">
-                            <span className="access-type"> {room.accesstype}</span>
+                            <span className="access-type" style={{backgroundColor:room.accesstype==='private'?'rgba(255,0,0,0.3)':'rgba(0,255,0,0.3)'}} > {room.accesstype}</span>
                             <span className="room-type">  {room.roomtype}</span>
                         </li>
                         {room.admin.username && <li className="list-group-item">Admin: {room.admin.username}</li>}
