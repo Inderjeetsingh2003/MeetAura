@@ -8,13 +8,13 @@
     gap: 20px; /* Space between cards */
     justify-content: center; /* Centers cards horizontally */
     padding: 20px; /* Use a specific padding value */
-      width: 100%; /* Ensure container has full width */
-  
+    margin-top: 20px; /* Adjust margin as needed */
+    width: 100%; /* Ensure container has full width */
 }
 
 /* Card styling */
 .card {
-    width: 500px;
+    width: 450px;
     border: 1px solid #313131; /* Border for cards */
     border-radius: 8px;
     overflow: hidden; /* Ensures images don't overflow */
@@ -23,7 +23,6 @@
     background-color: rgba(0, 0, 0, 0.702); /* Background color slightly transparent */
     height: 300px;
     margin: 20px; /* Margin around each card */
-   
 }
 
 .card:hover {
@@ -79,7 +78,6 @@
     padding: 2px 8px; /* Padding to give some space around the text */
     display: flex; /* Ensure only the text is styled */
     max-width: 120px;
-    margin:auto;
     margin-right: 2px;
 }
 

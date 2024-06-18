@@ -1,4 +1,4 @@
- /* CreateRoom.css */
+/* CreateRoom.css */
 
 .create-room-form {
     padding: 20px; /* Padding around the form */
@@ -27,6 +27,24 @@
     margin-bottom: 20px; /* Vertical spacing between form groups */
 }
 
+.form-control {
+    color: #ffffff; /* Light text color for form inputs */
+    background-color: #3b3b3b; /* Dark background color for inputs */
+    border: 1px solid #5b5b5b; /* Dark border color */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.form-control:focus {
+    color: #1e1d1d; /* White text color on focus */
+    background-color: #4b4b4b; /* Slightly lighter background color on focus */
+    border-color: #7b7b7b; /* Slightly lighter border color on focus */
+}
+
+.bold-input {
+    font-weight: bold; 
+    color: #000000;
+}
+
 .btn-close-white {
     color: #e0e0e0; /* Light close button text color */
     opacity: 1; /* Ensure full opacity */
@@ -45,4 +63,15 @@
 .btn-primary:hover {
     background-color: #021e3b; /* Even darker background color on hover */
     border-color: #011529; /* Even darker border color on hover */
+}
+
+.btn-outline-secondary {
+    color: #e0e0e0; /* Light text color for copy button */
+    border-color: #5b5b5b; /* Dark border color for copy button */
+}
+
+.btn-outline-secondary:hover {
+    color: #ffffff; /* White text color on hover */
+    background-color: #4b4b4b; /* Slightly lighter background color on hover */
+    border-color: #7b7b7b; /* Slightly lighter border color on hover */
 }

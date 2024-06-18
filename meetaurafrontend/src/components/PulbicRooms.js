@@ -6,27 +6,27 @@ import { useNavigate } from 'react-router-dom';
 
 const PublicRooms = () => {
     const { PublicRooms } = useContext(Roomcontext);
-    const navigate=useNavigate()
-const handleclick=(roomid)=>
-    {
-            navigate(`/room/${roomid}`)
+    const navigate = useNavigate();
+    
+    const handleclick = (roomid) => {
+        navigate(`/room/${roomid}`);
     }
+
     return (
-        <div className="card-container" >
+        <div className="card-container">
             {PublicRooms && PublicRooms.map(room => (
-                <div key={room._id} className="card" onClick={()=>handleclick(room._id)} >
-                    <img src={logo123} className="card-img-top" alt={room.title} />
+                <div key={room._id} className="card" onClick={() => handleclick(room._id)}>
                     <div className="card-body">
                         <h5 className="card-title">{room.title}</h5>
                         <p className="card-text">{room.description}</p>
                     </div>
                     <ul className="list-group list-group-flush">
-                        <li className="list-group-item">Access Type: {room.accesstype}</li>
-                        <li className="list-group-item">Room Type: {room.roomtype}</li>
-                        {room.admin.username&& <li className="list-group-item">Admin: {room.admin.username}</li>}
-                        {/* Add more details as needed */}
+                        <li className="list-group-item">
+                            <span className="access-type"> {room.accesstype}</span>
+                            <span className="room-type">  {room.roomtype}</span>
+                        </li>
+                        {room.admin.username && <li className="list-group-item">Admin: {room.admin.username}</li>}
                     </ul>
-                   
                 </div>
             ))}
         </div>
