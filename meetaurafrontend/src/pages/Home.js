@@ -7,6 +7,7 @@ import { Usercontext } from '../context/Usercontext';
 import '../css/Home.css'; // Import the CSS file
 
 import Navbar from '../components/Navbar';
+import PrivateChatroom from '../components/PrivateChatroom';
 
 export default function Home() {
   const [createroom, setcreateRoom] = useState(false);
@@ -14,17 +15,18 @@ export default function Home() {
  
   const navigate = useNavigate();
 
-  const { getpublicrooms } = useContext(Roomcontext);
-  const { getuserdetails,userdetail } = useContext(Usercontext); // Assume `saveuserdetails` is available in context
+  const { getpublicrooms ,getprivatechatroom} = useContext(Roomcontext);
+ const { getuserdetails } = useContext(Usercontext); // Assume `saveuserdetails` is available in context
 
   useEffect(() => {
     if (!localStorage.getItem('user-token')) {
       navigate('/login');
     } else {
       getpublicrooms();
-    
+      getprivatechatroom();
       // Fetch user deta
-          getuserdetails(); }
+          getuserdetails(); 
+        }
   }, []);
 
   // creating of room
@@ -48,6 +50,7 @@ export default function Home() {
     
 <Navbar />
       <PulbicRooms/>
+      <PrivateChatroom/>
       
       <button className="create-room-button" onClick={handleClick}>
         +

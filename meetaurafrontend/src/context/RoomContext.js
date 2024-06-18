@@ -33,7 +33,31 @@ const Roomprovider = (props) => {
         }
 
 
-  return <Roomcontext.Provider value={{getpublicrooms,PublicRooms}}>
+        const[privateroominfo,setprivateroominfo]=useState()
+        const getprivatechatroom=async()=>
+            {
+                const response=await fetch(`${host}/getprivatechatroom`,
+                    {
+                        mode:'cors',
+                        method:'GET',
+                        headers:{
+                            'Content-Type':'application/json',
+                            'access-token':localStorage.getItem('user-token')
+                        }
+                    }
+                )
+                const json=await response.json()
+                if(json.success)
+                    {
+                        console.log("the privatechat room details in the private room context are:",json.rooms)
+                        setprivateroominfo(json.rooms)
+                    }
+                    else{
+                        console.log(json.message)
+                    }
+            }
+
+  return <Roomcontext.Provider value={{getpublicrooms,PublicRooms,getprivatechatroom,privateroominfo}}>
     {props.children}
     </Roomcontext.Provider>;
 };

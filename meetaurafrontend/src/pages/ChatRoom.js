@@ -79,6 +79,13 @@ export default function ChatRoom() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (!localStorage.getItem('user-token')) {
+      navigate('/');
+    }
+    getuserdetails();
+  }, []);
+
+  useEffect(() => {
     socket.on('connect', () => {
       console.log("connected", socket.id);
       socket.emit('setusername', { username: userdetail.username, roomid: id });
@@ -100,12 +107,7 @@ export default function ChatRoom() {
     };
   }, []);
 
-  useEffect(() => {
-    if (!localStorage.getItem('user-token')) {
-      navigate('/');
-    }
-    getuserdetails();
-  }, []);
+  
 
   const sendMessage = () => {
     socket.emit('sendmessage', { roomid: id, message: messagetosend, username: userdetail.username });
