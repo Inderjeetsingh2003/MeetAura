@@ -45,7 +45,7 @@ export default function Login() {
           <h2 style={styles.textCardTitle}>   <br/><br/> <br/><br/> Welcome to Meet Aura  </h2>
           <p style={styles.textCardDescription}>
           <br/><br/> <br/> Welcome to Meet Aura, where virtual interactions are elevated to new heights! Our platform revolutionizes video conferencing and collaboration, providing an innovative and seamless experience for users worldwide.
-            <br/><br/><br/>   <br/><br/><br/>   <br/><br/><br/>   <br/><br/><br/>   <br/><br/><br/>      
+            <br/><br/><br/>   <br/><br/><br/>   <br/><br/><br/>         
           </p>
         </div>
       </div>

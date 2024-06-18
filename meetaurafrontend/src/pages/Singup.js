@@ -80,7 +80,7 @@ export default function Signup() {
           <h2 style={styles.textCardTitle}><br /><br /> <br /><br /> Welcome to Meet Aura<br />  <br /><br /> </h2>
           <p style={styles.textCardDescription}>
             Welcome to Meet Aura, where virtual interactions are elevated to new heights! Our platform revolutionizes video conferencing and collaboration, providing an innovative and seamless experience for users worldwide.
-            <br /><br />  <br /><br />  <br /><br />  <br /><br />  <br /><br />  <br /><br />  <br /><br />
+            <br /><br />  <br /><br />  <br /><br />  <br /><br />  <br /><br />  
           </p>
         </div>
       </div>
@@ -408,23 +408,34 @@ const styles = {
     padding: '10px',
   },
   signupForm: {
-    background: '#2D2D2D',
-    padding: '40px',
+    background: 'rgba(45, 45, 45, 0.8)', // Dark form background with transparency
+    padding: '30px',
     borderRadius: '10px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.7)',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.7)', // Darker shadow
     width: '100%',
     maxWidth: '400px',
-    border: '2px solid #444444',
+    border: '2px solid #444444', // Darker border
+    height: '100vh',
+    border:'0px',
+
+    // background: '#2D2D2D',
+    // padding: '40px',
+    // borderRadius: '10px',
+    // boxShadow: '0 4px 8px rgba(0, 0, 0, 0.7)',
+    // width: '100%',
+    // maxWidth: '400px',
+    // border: '2px solid #444444',
+    // height: '70vh',
  
   },
   signupFormTitle: {
     fontSize: '24px',
     color: '#FFFFFF',
-    marginBottom: '20px',
+    marginBottom: '10px',
     textAlign: 'center',
   },
   formGroup: {
-    marginBottom: '20px',
+    marginBottom: '10px',
   },
   formLabel: {
     fontWeight: 'bold',
@@ -447,7 +458,7 @@ const styles = {
     color: '#AAAAAA',
   },
   formCheck: {
-    marginBottom: '20px',
+    marginBottom: '10px',
   },
   formCheckLabel: {
     color: '#BBBBBB',
